@@ -17,9 +17,9 @@ class RippleAnimation extends StatefulWidget {
   final bool repeat;
 
   const RippleAnimation({
-    Key key,
-    @required this.child,
-    @required this.color,
+    Key? key,
+    required this.child,
+    required this.color,
     this.delay = const Duration(milliseconds: 0),
     this.repeat = false,
     this.minRadius = 60,
@@ -33,7 +33,7 @@ class RippleAnimation extends StatefulWidget {
 
 class _RippleAnimationState extends State<RippleAnimation>
     with TickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -74,9 +74,9 @@ class _RippleAnimationState extends State<RippleAnimation>
 class CirclePainter extends CustomPainter {
   CirclePainter(
     this._animation, {
-    this.minRadius,
+    required this.minRadius,
     this.wavesCount,
-    @required this.color,
+    required this.color,
   }) : super(repaint: _animation);
   final Color color;
   final double minRadius;
